@@ -1,7 +1,5 @@
 import base64
 
-# --- TABLAS Y MATRICES DES ---
-
 IP = [
     58,50,42,34,26,18,10,2,
     60,52,44,36,28,20,12,4,
@@ -120,7 +118,6 @@ S_BOXES = [
 # --- FUNCIONES DE PADDING  ---
 
 def pad(data):
-    # Si el mensaje ya es múltiplo de 8 no agregamos relleno.
     if len(data) % 8 == 0:
         return data
         
@@ -201,7 +198,7 @@ def des_block(block, keys):
 # --- CIFRADO Y DESCIFRADO PRINCIPAL ---
 
 def des_encrypt(data, key):
-    # Pre-procesamiento: Rellenar diferencia de tamaño
+    #Rellenar diferencia de tamaño
     data = pad(data)
     
     keys = generate_keys(key)
@@ -233,10 +230,10 @@ def des_decrypt(data, key):
 # --- EJECUCIÓN PRINCIPAL ---
 
 if __name__ == "__main__":
-    # Mensaje de prueba (ahora puede ser de cualquier tamaño)
+    # Mensaje de prueba 
     message = b"noche697"
     
-    # La clave debe seguir siendo de 8 bytes (64 bits)
+    # La clave 
     key_text = "data7Qa="
     key = int.from_bytes(key_text.encode("utf-8"), "big")
 
